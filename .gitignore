@@ -15,6 +15,7 @@ yarn-error.log*
 pnpm-debug.log*
 /dist/
 /build/
+frontend/.vite/
 
 # framework/runtime
 /storage/*.key
@@ -29,3 +30,6 @@ pnpm-debug.log*
 Thumbs.db
 .vscode/
 .idea/
+
+# deployment artifacts
+deployment_*.zip
