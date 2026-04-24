@@ -1,0 +1,8 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Google Sheets</title>
+  <desc id="desc">Green spreadsheet icon with grid cells</desc>
+  <path d="M14 6h26l10 10v40a2 2 0 0 1-2 2H14a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" fill="#0F9D58"/>
+  <path d="M40 6v10h10" fill="#2BB673"/>
+  <rect x="18" y="24" width="28" height="24" rx="2" fill="#E8F5EE"/>
+  <path d="M27 24v24M36 24v24M18 32h28M18 40h28" stroke="#0F9D58" stroke-width="2"/>
+</svg>

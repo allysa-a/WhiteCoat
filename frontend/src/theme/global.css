@@ -1,0 +1,15 @@
+body{
+    background-color: #F0F0F0;
+}
+ion-page{
+    --background: #F0F0F0;
+}
+ion-content{
+    --background: #F0F0F0;
+}
+:root {
+  --ion-font-family: 'Archivo', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+p .title-font {
+  font-family: 'Archivo Black', sans-serif;
+}

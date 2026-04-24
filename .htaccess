@@ -1,0 +1,27 @@
+RewriteEngine On
+Options -MultiViews
+AcceptPathInfo On
+ErrorDocument 404 /404.html
+
+# Block access to dotfiles except .well-known
+RewriteRule (^|/)\.(?!well-known/) - [R=404,L]
+
+# Block direct access to non-index PHP files
+RewriteCond %{THE_REQUEST} \s/+(.+\.php)(?:[?\s]|$) [NC]
+RewriteCond %1 !^(?:index|api)\.php$ [NC]
+RewriteRule ^.+\.php$ - [R=404,L]
+
+# Allow direct api.php fallback endpoint
+RewriteRule ^api\.php$ - [L]
+
+# API routes (internally handled by index.php)
+RewriteRule ^api(?:/.*)?$ index.php [QSA,L]
+RewriteRule ^index\.php/api(?:/.*)?$ index.php [QSA,L]
+
+# Serve existing files/folders directly
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# SPA fallback
+RewriteRule . index.html [L]
