@@ -3,11 +3,11 @@
         'name' => 'whitecoat/deployment',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'a0f6daf1be622322d48782f1860eb223b28107ad',
-        'type' => 'library',
+        'reference' => '983a71117450f9152dd3044bc266ee749c9bf945',
+        'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'dev' => true,
+        'dev' => false,
     ),
     'versions' => array(
         'phpmailer/phpmailer' => array(
@@ -22,8 +22,8 @@
         'whitecoat/deployment' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'a0f6daf1be622322d48782f1860eb223b28107ad',
-            'type' => 'library',
+            'reference' => '983a71117450f9152dd3044bc266ee749c9bf945',
+            'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
             'dev_requirement' => false,
