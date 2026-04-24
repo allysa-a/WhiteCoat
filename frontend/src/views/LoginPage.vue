@@ -482,10 +482,15 @@ export default {
       isLoading.value = true;
 
       try {
-        const loginPayload = {
+        const loginPayload: {
+          loginInput: string;
+          password: string;
+          otp?: string;
+        } = {
           loginInput: formData.loginInput,
           password: formData.password,
         };
+
         if (showOtpSection.value) {
           loginPayload.otp = String(formData.otp || '').trim();
         }

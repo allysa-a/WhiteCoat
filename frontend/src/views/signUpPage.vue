@@ -12,7 +12,7 @@
       <ion-content class="ion-padding-bottom">
         <div class="pb-32">
           <div class="mt-8">
-            <img src="../assets/logo/doctors.png" alt="doctors" class="h-40 w-60 mx-auto rounded-full"/>
+            <img src="../assets/logo/doctor.png" alt="doctors" class="h-40 w-60 mx-auto rounded-full"/>
             <p id="archivo" class="text-center font-bold text-3xl mt-2 mb-4">WhiteCoat</p>
           </div>
   
