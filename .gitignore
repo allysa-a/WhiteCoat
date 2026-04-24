@@ -1,0 +1,31 @@
+# env secrets
+.env
+.env.*
+!.env.example
+
+# php/composer
+/vendor/
+composer.lock
+
+# node/vue
+/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+/dist/
+/build/
+
+# framework/runtime
+/storage/*.key
+/storage/logs/*
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/bootstrap/cache/*.php
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
