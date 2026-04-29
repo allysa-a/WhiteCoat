@@ -1,115 +1,225 @@
 <template>
   <ion-page>
-    <ion-header>
-      <ion-toolbar>
-        <div class="flex justify-between px-4 py-2">
-          <img src="../assets/logo/deped.png" alt="Logo" class="h-20 w-30">
-          <img src="../assets/logo/division.png" alt="Logo" class="h-20 w-20">
-        </div>
-      </ion-toolbar>
-    </ion-header>
-    
-    <ion-content class="ion-padding-bottom">
-      <div class="pb-32">
-        <div class="mt-8">
-          <img src="../assets/logo/doctor.png" alt="doctor" class="h-40 w-60 mx-auto rounded-full"/>
-          <p id="archivo" class="text-center font-bold text-3xl mt-2 mb-4">WhiteCoat</p>
-        </div>
+    <ion-content>
+      <div
+        class="min-h-screen flex items-center justify-center bg-[#EEF4FB] p-4"
+      >
+        <div
+          class="w-full max-w-4xl flex rounded-3xl shadow-2xl overflow-hidden min-h-[580px]"
+        >
+          <!-- Left Panel -->
+          <div
+            class="hidden md:flex flex-col justify-between w-2/5 p-10 relative overflow-hidden"
+            style="
+              background: linear-gradient(
+                145deg,
+                #5ba3d9 0%,
+                #3b82c4 60%,
+                #2b6faf 100%
+              );
+            "
+          >
+            <!-- Decorative circles -->
+            <div
+              class="absolute -top-16 -left-16 w-56 h-56 rounded-full bg-white opacity-10"
+            ></div>
+            <div
+              class="absolute bottom-10 -right-12 w-48 h-48 rounded-full bg-white opacity-10"
+            ></div>
+            <div
+              class="absolute top-1/2 -left-8 w-32 h-32 rounded-full bg-white opacity-10"
+            ></div>
 
-        <div class="bg-[#D9D9D9] mx-8 md:mx-auto p-6 rounded-4xl width-full md:w-sm items-center">
-          <p class="text-5xl font-bold mb-5 mt-2 text-center">LOG IN</p>
-
-          <form class="w-full" @submit.prevent="handleSubmit">
-            <!-- Username or Email Input -->
-            <div class="mb-4">
-              <ion-input
-                v-model="formData.loginInput"
-                class="custom-input mx-auto h-15 shadow bg-white rounded-full border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="login-input"
-                type="text"
-                placeholder="Enter username or email"
+            <!-- Logo -->
+            <div class="flex items-center gap-3 z-10">
+              <img
+                src="../assets/logo/deped.png"
+                alt="DepEd Logo"
+                class="h-12 w-auto object-contain"
               />
-              <label class="block text-gray-700 text-lg font-bold mb-2 mt-1" for="login-input">
-                Username or Email
-              </label>
             </div>
 
-            <!-- Password Input -->
-            <div class="mb-6">
-              <ion-input
-                v-model="formData.password"
-                class="custom-input mx-auto h-15 shadow bg-white rounded-full border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                id="password"
-                type="password"
-                placeholder="Enter your password"
+            <!-- Center Content -->
+            <div class="z-10">
+              <img
+                src="../assets/logo/doctorlogo.jpg"
+                alt="Doctor"
+                class="h-24 w-24 rounded-full object-cover border-4 border-white border-opacity-30 mb-6 shadow-lg"
+              />
+              <h1
+                id="archivo"
+                class="text-white text-4xl font-black leading-tight mb-3"
               >
-                <ion-input-password-toggle style="--color: black;" slot="end"></ion-input-password-toggle>
-              </ion-input>
-              <label class="block text-gray-700 text-lg font-bold mb-2 mt-1" for="password">
-                Password
-              </label>
-              <div class="text-right mt-1">
+                White Coat
+              </h1>
+              <p class="text-[#B8D9F5] text-sm leading-relaxed max-w-xs">
+                Your trusted health companion for DepEd schools. Secure, fast,
+                and always accessible.
+              </p>
+            </div>
+
+            <!-- Bottom note -->
+            <p class="text-[#9AC8EE] text-xs z-10">
+              © {{ new Date().getFullYear() }} White Coat — DepEd Division
+            </p>
+          </div>
+
+          <!-- Right Panel -->
+          <div
+            class="flex-1 bg-white flex flex-col justify-center px-8 md:px-12 py-10"
+          >
+            <!-- Mobile logo -->
+            <div class="flex md:hidden items-center gap-3 mb-8">
+              <img
+                src="../assets/logo/deped.png"
+                alt="DepEd Logo"
+                class="h-10 w-auto object-contain"
+              />
+              <span id="archivo" class="text-[#3B82C4] text-xl font-black"
+                >White Coat</span
+              >
+            </div>
+
+            <h2 class="text-3xl font-bold text-gray-800 mb-1">Welcome back</h2>
+            <p class="text-gray-400 text-sm mb-8">
+              Sign in to your account to continue
+            </p>
+
+            <form class="w-full" @submit.prevent="handleSubmit">
+              <!-- Username or Email -->
+              <div class="mb-5">
+                <label
+                  class="block text-gray-600 text-sm font-semibold mb-2"
+                  for="login-input"
+                >
+                  Username or Email
+                </label>
+                <ion-input
+                  v-model="formData.loginInput"
+                  class="custom-input block w-full h-12 bg-[#F3F8FC] rounded-xl border border-[#C9DFF0] px-4 text-gray-700 text-sm focus:outline-none focus:border-[#3B82C4] transition"
+                  id="login-input"
+                  type="text"
+                  placeholder="Enter username or email"
+                />
+              </div>
+
+              <!-- Password -->
+              <div class="mb-2">
+                <label
+                  class="block text-gray-600 text-sm font-semibold mb-2"
+                  for="password"
+                >
+                  Password
+                </label>
+                <ion-input
+                  v-model="formData.password"
+                  class="custom-input block w-full h-12 bg-[#F3F8FC] rounded-xl border border-[#C9DFF0] px-4 text-gray-700 text-sm focus:outline-none focus:border-[#3B82C4] transition"
+                  id="password"
+                  type="password"
+                  placeholder="Enter your password"
+                >
+                  <ion-input-password-toggle
+                    style="--color: #3b82c4"
+                    slot="end"
+                  ></ion-input-password-toggle>
+                </ion-input>
+              </div>
+
+              <!-- Remember Me and Forgot Password -->
+              <div class="flex items-center justify-between mt-3 mb-2">
+                <label class="flex items-center gap-2 cursor-pointer">
+                  <input
+                    v-model="rememberMe"
+                    type="checkbox"
+                    class="w-4 h-4 rounded border-[#C9DFF0] accent-[#3B82C4] cursor-pointer"
+                  />
+                  <span class="text-gray-500 text-sm">Remember me</span>
+                </label>
                 <button
                   type="button"
-                  class="forgot-password-link"
+                  class="text-[#3B82C4] text-sm font-semibold hover:underline"
                   @click="openForgotPasswordModal"
                 >
                   Forgot Password?
                 </button>
               </div>
-            </div>
 
-            <!-- Error Message -->
-            <div v-if="infoMessage && !showOtpSection" class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4 text-center">
-              {{ infoMessage }}
-            </div>
+              <!-- Messages -->
+              <div
+                v-if="infoMessage && !showOtpSection"
+                class="bg-green-50 border border-green-300 text-green-700 px-4 py-3 rounded-xl text-sm mb-4 text-center"
+              >
+                {{ infoMessage }}
+              </div>
+              <div
+                v-if="errorMessage && !showOtpSection"
+                class="bg-red-50 border border-red-300 text-red-700 px-4 py-3 rounded-xl text-sm mb-4 text-center"
+              >
+                {{ errorMessage }}
+              </div>
 
-            <div v-if="errorMessage && !showOtpSection" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4 text-center">
-              {{ errorMessage }}
-            </div>
-
-            <!-- Submit Button -->
-            <div class="mx-auto text-center">
-              <ion-button 
+              <!-- Submit -->
+              <ion-button
                 fill="clear"
                 :disabled="isLoading"
-                class="p-2 font-bold text-xl text-[#0034B7] rounded-full mb-4 mx-auto border border-black font-bold hover:bg-[#0034B7] hover:text-white transition duration-300 ease-in-out"
+                class="w-full h-12 bg-[#3B82C4] text-white font-bold text-base rounded-xl hover:bg-[#2B6FAF] transition duration-200 flex items-center justify-center"
                 type="submit"
+                expand="block"
+                style="
+                  --background: #3b82c4;
+                  --background-hover: #2b6faf;
+                  --color: white;
+                  --border-radius: 12px;
+                  height: 48px;
+                  font-weight: 700;
+                  font-size: 1rem;
+                "
               >
                 <span v-if="!isLoading">Sign In</span>
                 <span v-else>Signing in...</span>
               </ion-button>
-              <div class="text-center mt-2">
-                <p class="text-gray-700">
-                  Don't have an account?
-                  <router-link to="/signup" class="text-[#0034B7] font-bold hover:underline">
-                    Sign Up
-                  </router-link>
-                </p>
-              </div>
-            </div>
-          </form>
+
+              <!-- Sign Up Link -->
+              <p class="text-center text-gray-500 text-sm mt-6">
+                Don't have an account?
+                <router-link
+                  to="/signup"
+                  class="text-[#3B82C4] font-bold hover:underline"
+                  >Sign Up</router-link
+                >
+              </p>
+            </form>
+          </div>
         </div>
       </div>
 
-      <div v-if="showForgotPasswordModal" class="forgot-modal-overlay" @click.self="closeForgotPasswordModal">
-        <div class="forgot-modal-card">
-          <h2 class="forgot-modal-title">Reset Password</h2>
-          <p class="forgot-modal-subtitle" v-if="!forgotPasswordOtpSent">Enter your email and we will send a 6-digit OTP.</p>
-          <p class="forgot-modal-subtitle" v-else>Enter the OTP and your new password to complete reset.</p>
+      <!-- Forgot Password Modal -->
+      <div
+        v-if="showForgotPasswordModal"
+        class="fixed inset-0 z-[998] bg-white/10 backdrop-blur-[2px] flex items-center justify-center p-4"
+        @click.self="closeForgotPasswordModal"
+      >
+        <div class="w-full max-w-sm bg-white rounded-2xl p-6 shadow-2xl">
+          <h2 class="text-xl font-bold text-gray-800 mb-1">Reset Password</h2>
+          <p class="text-gray-400 text-sm mb-4" v-if="!forgotPasswordOtpSent">
+            Enter your email and we'll send a 6-digit OTP.
+          </p>
+          <p class="text-gray-400 text-sm mb-4" v-else>
+            Enter the OTP and your new password to complete reset.
+          </p>
 
           <ion-input
             v-model="forgotPasswordEmail"
-            class="custom-input forgot-email-input"
+            class="custom-input w-full h-11 bg-[#F3F8FC] rounded-xl border border-[#C9DFF0] px-4 text-sm text-gray-700 mb-3"
             type="email"
             placeholder="Enter your email"
             :readonly="forgotPasswordOtpSent"
           />
 
-          <div v-if="forgotPasswordOtpSent" class="forgot-reset-fields">
+          <div v-if="forgotPasswordOtpSent" class="space-y-3">
             <ion-input
               v-model="forgotPasswordOtp"
-              class="custom-input forgot-email-input"
+              class="custom-input w-full h-11 bg-[#F3F8FC] rounded-xl border border-[#C9DFF0] px-4 text-sm text-gray-700"
               type="text"
               inputmode="numeric"
               :maxlength="6"
@@ -117,64 +227,121 @@
             />
             <ion-input
               v-model="forgotPasswordNewPassword"
-              class="custom-input forgot-email-input"
+              class="custom-input w-full h-11 bg-[#F3F8FC] rounded-xl border border-[#C9DFF0] px-4 text-sm text-gray-700"
               type="password"
               placeholder="New password"
             >
-              <ion-input-password-toggle slot="end" style="--color: black;" />
+              <ion-input-password-toggle slot="end" style="--color: #3b82c4" />
             </ion-input>
             <ion-input
               v-model="forgotPasswordConfirmPassword"
-              class="custom-input forgot-email-input"
+              class="custom-input w-full h-11 bg-[#F3F8FC] rounded-xl border border-[#C9DFF0] px-4 text-sm text-gray-700"
               type="password"
               placeholder="Confirm new password"
             >
-              <ion-input-password-toggle slot="end" style="--color: black;" />
+              <ion-input-password-toggle slot="end" style="--color: #3b82c4" />
             </ion-input>
-            <p class="forgot-password-rule">
-              Password must be at least 16 characters and include uppercase, lowercase, number, and special character.
+            <p class="text-xs text-gray-400">
+              Password must be at least 16 characters and include uppercase,
+              lowercase, number, and special character.
             </p>
-            <button type="button" class="forgot-resend" :disabled="forgotPasswordLoading" @click="submitForgotPassword">
+            <button
+              type="button"
+              class="text-[#3B82C4] text-sm font-bold hover:underline"
+              :disabled="forgotPasswordLoading"
+              @click="submitForgotPassword"
+            >
               Resend OTP
             </button>
           </div>
 
-          <div v-if="forgotPasswordInfo" class="forgot-message forgot-message-info">
+          <div
+            v-if="forgotPasswordInfo"
+            class="mt-3 bg-green-50 border border-green-300 text-green-700 rounded-xl px-4 py-2 text-sm"
+          >
             {{ forgotPasswordInfo }}
           </div>
-
-          <div v-if="forgotPasswordError" class="forgot-message forgot-message-error">
+          <div
+            v-if="forgotPasswordError"
+            class="mt-3 bg-red-50 border border-red-300 text-red-700 rounded-xl px-4 py-2 text-sm"
+          >
             {{ forgotPasswordError }}
           </div>
 
-          <div class="forgot-modal-actions">
-            <button type="button" class="forgot-btn forgot-btn-secondary" @click="closeForgotPasswordModal" :disabled="forgotPasswordLoading">
+          <div class="flex justify-end gap-3 mt-5">
+            <button
+              type="button"
+              class="px-4 py-2 rounded-xl bg-gray-100 text-gray-700 font-semibold text-sm hover:bg-gray-200 transition"
+              @click="closeForgotPasswordModal"
+              :disabled="forgotPasswordLoading"
+            >
               Cancel
             </button>
-            <button type="button" class="forgot-btn forgot-btn-primary" @click="forgotPasswordOtpSent ? submitForgotPasswordReset() : submitForgotPassword()" :disabled="forgotPasswordLoading">
-              <span v-if="!forgotPasswordLoading">{{ forgotPasswordOtpSent ? 'Reset Password' : 'Send OTP' }}</span>
+            <button
+              type="button"
+              class="px-4 py-2 rounded-xl bg-[#3B82C4] text-white font-bold text-sm hover:bg-[#2B6FAF] transition disabled:opacity-60"
+              @click="
+                forgotPasswordOtpSent
+                  ? submitForgotPasswordReset()
+                  : submitForgotPassword()
+              "
+              :disabled="forgotPasswordLoading"
+            >
+              <span v-if="!forgotPasswordLoading">{{
+                forgotPasswordOtpSent ? "Reset Password" : "Send OTP"
+              }}</span>
               <span v-else>Sending...</span>
             </button>
           </div>
         </div>
       </div>
 
-      <div v-if="showOtpSection" class="otp-modal-overlay" @click.self="returnToLogin">
-        <div class="otp-modal-card">
-          <button class="otp-back" type="button" @click="returnToLogin">
+      <!-- OTP Modal -->
+      <div
+        v-if="showOtpSection"
+        class="fixed inset-0 z-[999] bg-white/10 backdrop-blur-sm flex items-center justify-center p-4"
+        @click.self="returnToLogin"
+      >
+        <div class="w-full max-w-sm bg-white rounded-2xl shadow-2xl p-4">
+          <button
+            class="text-gray-600 hover:text-gray-900 text-2xl mb-4 flex items-center gap-1"
+            type="button"
+            @click="returnToLogin"
+          >
             <ion-icon :icon="chevronBackOutline" />
           </button>
 
-          <div class="otp-content">
-            <h1 class="otp-title">Verification</h1>
-            <p class="otp-subtitle">We've sent you a 6-digit verification code to your mobile number</p>
-            <p class="otp-destination">{{ otpDestinationLabel }}</p>
+          <div class="text-center">
+            <div
+              class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-[#D9EDF9] mb-4"
+            >
+              <svg
+                class="w-7 h-7 text-[#3B82C4]"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                />
+              </svg>
+            </div>
+            <h1 class="text-2xl font-bold text-gray-800">Verification</h1>
+            <p class="text-gray-400 text-sm mt-2 mb-1">
+              We've sent a 6-digit code to
+            </p>
+            <p class="font-bold text-gray-700 text-base mb-6">
+              {{ otpDestinationLabel }}
+            </p>
 
-            <div class="otp-box-wrapper" @click="focusOtpInput">
+            <div class="relative mb-1" @click="focusOtpInput">
               <input
                 ref="otpInputRef"
                 v-model="formData.otp"
-                class="otp-hidden-input"
+                class="absolute w-px h-px opacity-0 pointer-events-none"
                 type="text"
                 inputmode="numeric"
                 autocomplete="one-time-code"
@@ -182,24 +349,32 @@
                 @input="handleOtpInput"
                 @keyup.enter="handleSubmit"
               />
-
-              <div class="otp-boxes" role="group" aria-label="One-time password input">
+              <div class="grid grid-cols-6 gap-2">
                 <div
                   v-for="(digit, index) in otpDigits"
                   :key="index"
-                  class="otp-box"
-                  :class="{ 'otp-box-active': formData.otp.length === index }"
+                  class="h-12 rounded-xl bg-[#F3F8FC] border flex items-center justify-center text-xl font-bold text-gray-800 transition"
+                  :class="
+                    formData.otp.length === index
+                      ? 'border-[#3B82C4] shadow-sm shadow-blue-200'
+                      : 'border-[#C9DFF0]'
+                  "
                 >
                   {{ digit }}
                 </div>
               </div>
             </div>
 
-            <p class="otp-expiry">Code expires in {{ otpCountdownLabel }}</p>
+            <p class="text-gray-400 text-xs mt-4 mb-2">
+              Code expires in
+              <span class="font-bold text-[#3B82C4]">{{
+                otpCountdownLabel
+              }}</span>
+            </p>
 
             <button
               type="button"
-              class="otp-resend"
+              class="text-[#3B82C4] text-sm font-bold hover:underline disabled:opacity-50"
               :disabled="resendLoading || isLoading"
               @click="handleResendVerification"
             >
@@ -207,11 +382,16 @@
               <span v-else>Sending...</span>
             </button>
 
-            <div v-if="infoMessage" class="otp-message otp-message-info">
+            <div
+              v-if="infoMessage"
+              class="mt-4 bg-green-50 border border-green-300 text-green-700 rounded-xl px-4 py-2 text-sm"
+            >
               {{ infoMessage }}
             </div>
-
-            <div v-if="errorMessage" class="otp-message otp-message-error">
+            <div
+              v-if="errorMessage"
+              class="mt-4 bg-red-50 border border-red-300 text-red-700 rounded-xl px-4 py-2 text-sm"
+            >
               {{ errorMessage }}
             </div>
           </div>
@@ -224,47 +404,73 @@
 <script lang="ts">
 import { useRouter } from "vue-router";
 import { useRoute } from "vue-router";
-import { ref, reactive, onMounted, computed, watch, nextTick, onUnmounted } from 'vue';
-import axios from 'axios';
-import { chevronBackOutline } from 'ionicons/icons';
-import { 
-  IonPage, IonHeader, IonToolbar, IonContent, IonInput, IonButton, IonInputPasswordToggle, IonIcon
-} from '@ionic/vue';
+import {
+  ref,
+  reactive,
+  onMounted,
+  computed,
+  watch,
+  nextTick,
+  onUnmounted,
+} from "vue";
+import axios from "axios";
+import { chevronBackOutline } from "ionicons/icons";
+import {
+  IonPage,
+  IonHeader,
+  IonToolbar,
+  IonContent,
+  IonInput,
+  IonButton,
+  IonInputPasswordToggle,
+  IonIcon,
+} from "@ionic/vue";
 
 export default {
-  name: 'LoginPage',
-  components: { 
-    IonPage, IonHeader, IonToolbar, IonContent, IonInput, IonButton, IonInputPasswordToggle, IonIcon
+  name: "LoginPage",
+  components: {
+    IonPage,
+    IonHeader,
+    IonToolbar,
+    IonContent,
+    IonInput,
+    IonButton,
+    IonInputPasswordToggle,
+    IonIcon,
   },
   setup() {
     const router = useRouter();
     const route = useRoute();
-    
+
     const formData = reactive({
-      loginInput: '',
-      password: '',
-      otp: '',
+      loginInput: "",
+      password: "",
+      otp: "",
     });
 
-    const errorMessage = ref('');
-    const infoMessage = ref('');
+    const errorMessage = ref("");
+    const infoMessage = ref("");
     const isLoading = ref(false);
     const resendLoading = ref(false);
     const showResendButton = ref(false);
     const showOtpSection = ref(false);
+    const rememberMe = ref(false);
     const showForgotPasswordModal = ref(false);
-    const forgotPasswordEmail = ref('');
-    const forgotPasswordOtp = ref('');
-    const forgotPasswordNewPassword = ref('');
-    const forgotPasswordConfirmPassword = ref('');
+    const forgotPasswordEmail = ref("");
+    const forgotPasswordOtp = ref("");
+    const forgotPasswordNewPassword = ref("");
+    const forgotPasswordConfirmPassword = ref("");
     const forgotPasswordOtpSent = ref(false);
     const forgotPasswordLoading = ref(false);
-    const forgotPasswordInfo = ref('');
-    const forgotPasswordError = ref('');
+    const forgotPasswordInfo = ref("");
+    const forgotPasswordError = ref("");
     const otpInputRef = ref<HTMLInputElement | null>(null);
     const otpCountdownSeconds = ref(120);
     let otpTimer: ReturnType<typeof setInterval> | null = null;
-    const API_URL = ((import.meta as any).env?.VITE_API_BASE_URL || '').replace(/\/+$/, '');
+    const API_URL = ((import.meta as any).env?.VITE_API_BASE_URL || "").replace(
+      /\/+$/,
+      ""
+    );
 
     const isValidEmail = (value: string) => /\S+@\S+\.\S+/.test(value);
 
@@ -278,19 +484,22 @@ export default {
     };
 
     const otpDigits = computed(() => {
-      const digits = String(formData.otp || '').split('');
-      return Array.from({ length: 6 }, (_, idx) => digits[idx] || '');
+      const digits = String(formData.otp || "").split("");
+      return Array.from({ length: 6 }, (_, idx) => digits[idx] || "");
     });
 
     const otpCountdownLabel = computed(() => {
       const minutes = Math.floor(otpCountdownSeconds.value / 60);
       const seconds = otpCountdownSeconds.value % 60;
-      return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(
+        2,
+        "0"
+      )}`;
     });
 
     const otpDestinationLabel = computed(() => {
-      const value = String(formData.loginInput || '').trim();
-      if (!value) return 'your registered contact';
+      const value = String(formData.loginInput || "").trim();
+      if (!value) return "your registered contact";
       return value;
     });
 
@@ -321,162 +530,211 @@ export default {
 
     const handleOtpInput = (event: Event) => {
       const target = event.target as HTMLInputElement;
-      formData.otp = String(target.value || '').replace(/\D/g, '').slice(0, 6);
+      formData.otp = String(target.value || "")
+        .replace(/\D/g, "")
+        .slice(0, 6);
     };
 
     const returnToLogin = () => {
       showOtpSection.value = false;
-      formData.otp = '';
-      errorMessage.value = '';
-      infoMessage.value = '';
+      formData.otp = "";
+      errorMessage.value = "";
+      infoMessage.value = "";
       stopOtpTimer();
     };
 
     const openForgotPasswordModal = () => {
-      forgotPasswordEmail.value = isValidEmail(String(formData.loginInput || '')) ? String(formData.loginInput) : '';
-      forgotPasswordOtp.value = '';
-      forgotPasswordNewPassword.value = '';
-      forgotPasswordConfirmPassword.value = '';
+      forgotPasswordEmail.value = isValidEmail(
+        String(formData.loginInput || "")
+      )
+        ? String(formData.loginInput)
+        : "";
+      forgotPasswordOtp.value = "";
+      forgotPasswordNewPassword.value = "";
+      forgotPasswordConfirmPassword.value = "";
       forgotPasswordOtpSent.value = false;
-      forgotPasswordInfo.value = '';
-      forgotPasswordError.value = '';
+      forgotPasswordInfo.value = "";
+      forgotPasswordError.value = "";
       showForgotPasswordModal.value = true;
     };
 
     const closeForgotPasswordModal = () => {
       showForgotPasswordModal.value = false;
       forgotPasswordLoading.value = false;
-      forgotPasswordOtp.value = '';
-      forgotPasswordNewPassword.value = '';
-      forgotPasswordConfirmPassword.value = '';
+      forgotPasswordOtp.value = "";
+      forgotPasswordNewPassword.value = "";
+      forgotPasswordConfirmPassword.value = "";
       forgotPasswordOtpSent.value = false;
-      forgotPasswordInfo.value = '';
-      forgotPasswordError.value = '';
+      forgotPasswordInfo.value = "";
+      forgotPasswordError.value = "";
     };
 
     const submitForgotPassword = async () => {
-      forgotPasswordError.value = '';
-      forgotPasswordInfo.value = '';
+      forgotPasswordError.value = "";
+      forgotPasswordInfo.value = "";
 
-      const email = String(forgotPasswordEmail.value || '').trim();
+      const email = String(forgotPasswordEmail.value || "").trim();
       if (!isValidEmail(email)) {
-        forgotPasswordError.value = 'Please enter a valid email address.';
+        forgotPasswordError.value = "Please enter a valid email address.";
         return;
       }
 
       forgotPasswordLoading.value = true;
       try {
-        const response = await axios.post(`${API_URL}/api/auth/forgot-password`, { email }, {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
+        const response = await axios.post(
+          `${API_URL}/api/auth/forgot-password`,
+          { email },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
         forgotPasswordOtpSent.value = true;
-        forgotPasswordInfo.value = response.data?.message || 'If the account exists, a reset OTP has been sent to your email.';
+        forgotPasswordInfo.value =
+          response.data?.message ||
+          "If the account exists, a reset OTP has been sent to your email.";
       } catch (error: any) {
-        forgotPasswordError.value = error?.response?.data?.message || 'Failed to send reset OTP. Please try again.';
+        forgotPasswordError.value =
+          error?.response?.data?.message ||
+          "Failed to send reset OTP. Please try again.";
       } finally {
         forgotPasswordLoading.value = false;
       }
     };
 
     const submitForgotPasswordReset = async () => {
-      forgotPasswordError.value = '';
-      forgotPasswordInfo.value = '';
+      forgotPasswordError.value = "";
+      forgotPasswordInfo.value = "";
 
-      const email = String(forgotPasswordEmail.value || '').trim();
+      const email = String(forgotPasswordEmail.value || "").trim();
       if (!isValidEmail(email)) {
-        forgotPasswordError.value = 'Please enter a valid email address.';
+        forgotPasswordError.value = "Please enter a valid email address.";
         return;
       }
 
-      const otp = String(forgotPasswordOtp.value || '').replace(/\D/g, '').slice(0, 6);
+      const otp = String(forgotPasswordOtp.value || "")
+        .replace(/\D/g, "")
+        .slice(0, 6);
       forgotPasswordOtp.value = otp;
       if (!/^\d{6}$/.test(otp)) {
-        forgotPasswordError.value = 'Please enter the 6-digit OTP.';
+        forgotPasswordError.value = "Please enter the 6-digit OTP.";
         return;
       }
 
-      if (!forgotPasswordNewPassword.value || !forgotPasswordConfirmPassword.value) {
-        forgotPasswordError.value = 'Please enter and confirm your new password.';
+      if (
+        !forgotPasswordNewPassword.value ||
+        !forgotPasswordConfirmPassword.value
+      ) {
+        forgotPasswordError.value =
+          "Please enter and confirm your new password.";
         return;
       }
 
-      if (forgotPasswordNewPassword.value !== forgotPasswordConfirmPassword.value) {
-        forgotPasswordError.value = 'Passwords do not match.';
+      if (
+        forgotPasswordNewPassword.value !== forgotPasswordConfirmPassword.value
+      ) {
+        forgotPasswordError.value = "Passwords do not match.";
         return;
       }
 
       if (!isStrongPassword(forgotPasswordNewPassword.value)) {
-        forgotPasswordError.value = 'Password does not meet required strength.';
+        forgotPasswordError.value = "Password does not meet required strength.";
         return;
       }
 
       forgotPasswordLoading.value = true;
       try {
-        const response = await axios.post(`${API_URL}/api/auth/reset-password`, {
-          email,
-          otp,
-          password: forgotPasswordNewPassword.value,
-        }, {
-          headers: {
-            'Content-Type': 'application/json',
+        const response = await axios.post(
+          `${API_URL}/api/auth/reset-password`,
+          {
+            email,
+            otp,
+            password: forgotPasswordNewPassword.value,
           },
-        });
-        forgotPasswordInfo.value = response.data?.message || 'Password reset successful. You can now sign in.';
-        forgotPasswordOtp.value = '';
-        forgotPasswordNewPassword.value = '';
-        forgotPasswordConfirmPassword.value = '';
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        forgotPasswordInfo.value =
+          response.data?.message ||
+          "Password reset successful. You can now sign in.";
+        forgotPasswordOtp.value = "";
+        forgotPasswordNewPassword.value = "";
+        forgotPasswordConfirmPassword.value = "";
         forgotPasswordOtpSent.value = false;
       } catch (error: any) {
-        forgotPasswordError.value = error?.response?.data?.message || 'Failed to reset password. Please try again.';
+        forgotPasswordError.value =
+          error?.response?.data?.message ||
+          "Failed to reset password. Please try again.";
       } finally {
         forgotPasswordLoading.value = false;
       }
     };
 
     onMounted(() => {
-      const verifySent = String(route.query.verifyEmailSent || '') === '1' || String(route.query.verifyOtpSent || '') === '1';
-      const emailVerified = String(route.query.emailVerified || '');
-      const queryEmail = String(route.query.email || '').trim();
+      const verifySent =
+        String(route.query.verifyEmailSent || "") === "1" ||
+        String(route.query.verifyOtpSent || "") === "1";
+      const emailVerified = String(route.query.emailVerified || "");
+      const queryEmail = String(route.query.email || "").trim();
+      const savedEmail = localStorage.getItem("whitecoat_remember_email");
 
       if (verifySent) {
         infoMessage.value = queryEmail
           ? `OTP sent to ${queryEmail}. Please check your inbox.`
-          : 'OTP sent. Please check your inbox.';
+          : "OTP sent. Please check your inbox.";
         showOtpSection.value = true;
         showResendButton.value = true;
       }
 
-      if (emailVerified === '1') {
-        infoMessage.value = 'Email verified successfully. Sign in will now require OTP each time.';
-      } else if (emailVerified === '0') {
-        errorMessage.value = 'Verification link is invalid or expired. Please use OTP verification below.';
+      if (emailVerified === "1") {
+        infoMessage.value =
+          "Email verified successfully. Sign in will now require OTP each time.";
+      } else if (emailVerified === "0") {
+        errorMessage.value =
+          "Verification link is invalid or expired. Please use OTP verification below.";
         showOtpSection.value = true;
         showResendButton.value = true;
       }
 
-      if (queryEmail && formData.loginInput === '') {
+      if (queryEmail && formData.loginInput === "") {
         formData.loginInput = queryEmail;
+      }
+
+      if (savedEmail) {
+        formData.loginInput = savedEmail;
+        rememberMe.value = true;
       }
     });
 
     const handleSubmit = async () => {
-      errorMessage.value = '';
-      infoMessage.value = '';
+      errorMessage.value = "";
+      infoMessage.value = "";
 
       if (!showOtpSection.value) {
         showResendButton.value = false;
       }
 
       if (!formData.loginInput || !formData.password) {
-        errorMessage.value = 'Please enter username/email and password.';
+        errorMessage.value = "Please enter username/email and password.";
         return;
       }
 
-      if (showOtpSection.value && !/^\d{6}$/.test(String(formData.otp || '').trim())) {
-        errorMessage.value = 'Enter the 6-digit OTP sent to your email.';
+      if (
+        showOtpSection.value &&
+        !/^\d{6}$/.test(String(formData.otp || "").trim())
+      ) {
+        errorMessage.value = "Enter the 6-digit OTP sent to your email.";
         return;
+      }
+
+      if (rememberMe.value) {
+        localStorage.setItem("whitecoat_remember_email", formData.loginInput);
+      } else {
+        localStorage.removeItem("whitecoat_remember_email");
       }
 
       isLoading.value = true;
@@ -492,26 +750,35 @@ export default {
         };
 
         if (showOtpSection.value) {
-          loginPayload.otp = String(formData.otp || '').trim();
+          loginPayload.otp = String(formData.otp || "").trim();
         }
 
-        const response = await axios.post(`${API_URL}/api/auth/login`, loginPayload, {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
+        const response = await axios.post(
+          `${API_URL}/api/auth/login`,
+          loginPayload,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         if (response.data.token) {
-          localStorage.setItem('token', response.data.token);
-          localStorage.setItem('whitecoat_user', JSON.stringify(response.data.user));
-          localStorage.removeItem('whitecoat_terms_accepted');
-          window.dispatchEvent(new Event('whitecoat-user-updated'));
-          router.push('/tabs/tab1');
+          localStorage.setItem("token", response.data.token);
+          localStorage.setItem(
+            "whitecoat_user",
+            JSON.stringify(response.data.user)
+          );
+          localStorage.removeItem("whitecoat_terms_accepted");
+          window.dispatchEvent(new Event("whitecoat-user-updated"));
+          router.push("/tabs/tab1");
           return;
         }
 
-        if (response.data?.code === 'LOGIN_OTP_REQUIRED') {
-          infoMessage.value = response.data?.message || 'OTP sent. Enter the 6-digit code to continue login.';
+        if (response.data?.code === "LOGIN_OTP_REQUIRED") {
+          infoMessage.value =
+            response.data?.message ||
+            "OTP sent. Enter the 6-digit code to continue login.";
           showOtpSection.value = true;
           showResendButton.value = true;
           startOtpTimer();
@@ -519,20 +786,31 @@ export default {
           return;
         }
 
-        errorMessage.value = response.data?.message || 'Authentication failed.';
-
+        errorMessage.value = response.data?.message || "Authentication failed.";
       } catch (error: any) {
-        const errorMsg = error.response?.data?.message || error.message || 'Could not connect to server.';
+        const errorMsg =
+          error.response?.data?.message ||
+          error.message ||
+          "Could not connect to server.";
         const code = error.response?.data?.code;
         const status = error.response?.status;
-        
-        console.error('Login error:', { status, code, message: errorMsg, fullError: error });
-        
-        if (code === 'EMAIL_NOT_VERIFIED' || code === 'LOGIN_OTP_REQUIRED') {
-          errorMessage.value = error.response?.data?.message || 'OTP is required to continue login.';
+
+        console.error("Login error:", {
+          status,
+          code,
+          message: errorMsg,
+          fullError: error,
+        });
+
+        if (code === "EMAIL_NOT_VERIFIED" || code === "LOGIN_OTP_REQUIRED") {
+          errorMessage.value =
+            error.response?.data?.message ||
+            "OTP is required to continue login.";
           showResendButton.value = true;
           showOtpSection.value = true;
-          const unverifiedEmail = String(error.response?.data?.email || '').trim();
+          const unverifiedEmail = String(
+            error.response?.data?.email || ""
+          ).trim();
           if (unverifiedEmail && !isValidEmail(formData.loginInput)) {
             formData.loginInput = unverifiedEmail;
           }
@@ -545,46 +823,54 @@ export default {
     };
 
     const handleResendVerification = async () => {
-      errorMessage.value = '';
-      infoMessage.value = '';
+      errorMessage.value = "";
+      infoMessage.value = "";
 
-      const email = String(formData.loginInput || '').trim();
+      const email = String(formData.loginInput || "").trim();
       if (!email) {
-        errorMessage.value = 'Enter your username/email first, then click Resend Code.';
+        errorMessage.value =
+          "Enter your username/email first, then click Resend Code.";
         return;
       }
 
-      if (!String(formData.password || '').trim()) {
-        errorMessage.value = 'Enter your password first, then click Resend OTP.';
+      if (!String(formData.password || "").trim()) {
+        errorMessage.value =
+          "Enter your password first, then click Resend OTP.";
         return;
       }
 
       resendLoading.value = true;
       try {
-        const response = await axios.post(`${API_URL}/api/auth/login`, {
-          loginInput: email,
-          password: String(formData.password || ''),
-        }, {
-          headers: {
-            'Content-Type': 'application/json',
+        const response = await axios.post(
+          `${API_URL}/api/auth/login`,
+          {
+            loginInput: email,
+            password: String(formData.password || ""),
           },
-        });
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
-        if (response.data?.code === 'LOGIN_OTP_REQUIRED') {
-          infoMessage.value = response.data?.message || 'OTP sent. Please check your inbox.';
+        if (response.data?.code === "LOGIN_OTP_REQUIRED") {
+          infoMessage.value =
+            response.data?.message || "OTP sent. Please check your inbox.";
         } else {
-          infoMessage.value = response.data?.message || 'OTP sent. Please check your inbox.';
+          infoMessage.value =
+            response.data?.message || "OTP sent. Please check your inbox.";
         }
         showOtpSection.value = true;
         showResendButton.value = true;
-        formData.otp = '';
+        formData.otp = "";
         startOtpTimer();
         focusOtpInput();
       } catch (error: any) {
         if (error.response?.data?.message) {
           errorMessage.value = error.response.data.message;
         } else {
-          errorMessage.value = 'Failed to send OTP. Please try again.';
+          errorMessage.value = "Failed to send OTP. Please try again.";
         }
       } finally {
         resendLoading.value = false;
@@ -600,12 +886,15 @@ export default {
       focusOtpInput();
     });
 
-    watch(() => formData.otp, (value) => {
-      if (!showOtpSection.value || isLoading.value) return;
-      if (String(value).length === 6) {
-        handleSubmit();
+    watch(
+      () => formData.otp,
+      (value) => {
+        if (!showOtpSection.value || isLoading.value) return;
+        if (String(value).length === 6) {
+          handleSubmit();
+        }
       }
-    });
+    );
 
     onUnmounted(() => {
       stopOtpTimer();
@@ -621,6 +910,7 @@ export default {
       resendLoading,
       showResendButton,
       showOtpSection,
+      rememberMe,
       showForgotPasswordModal,
       forgotPasswordEmail,
       forgotPasswordOtp,
@@ -642,271 +932,27 @@ export default {
       submitForgotPassword,
       submitForgotPasswordReset,
       chevronBackOutline,
-    }
-  }
+    };
+  },
 };
 </script>
 
 <style scoped>
-ion-page, ion-header, ion-toolbar, ion-content {
-    --background: #F0F0F0;
-    --color: black;
+ion-page,
+ion-content {
+  --background: #eef4fb;
 }
+
 #archivo {
-  font-family: 'Archivo Black', sans-serif;
+  font-family: "Archivo Black", sans-serif;
 }
+
 .custom-input {
   --highlight-color: none;
-  --padding-start: 10px;
-  --padding-end: 10px;
-  --color: black;
-}
-
-.forgot-password-link {
-  background: transparent;
-  border: none;
-  color: #0034b7;
-  font-weight: 700;
-  font-size: 0.9rem;
-  cursor: pointer;
-}
-
-.forgot-modal-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 998;
-  background: rgba(18, 18, 24, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 18px;
-}
-
-.forgot-modal-card {
-  width: min(100%, 380px);
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22);
-}
-
-.forgot-modal-title {
-  margin: 0;
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #151515;
-}
-
-.forgot-modal-subtitle {
-  margin: 8px 0 14px;
-  color: #6b7280;
-  font-size: 0.93rem;
-}
-
-.forgot-email-input {
-  --background: #f9fafb;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --color: #1f2937;
+  --background: #f3f8fc;
   --border-radius: 12px;
-  --padding-start: 14px;
-  --padding-end: 14px;
-  border: 1px solid #d1d5db;
-  border-radius: 12px;
-  margin-bottom: 10px;
-}
-
-.forgot-reset-fields {
-  margin-top: 6px;
-}
-
-.forgot-password-rule {
-  margin: 2px 2px 8px;
-  font-size: 0.76rem;
-  color: #6b7280;
-}
-
-.forgot-resend {
-  border: none;
-  background: transparent;
-  color: #0034b7;
-  font-size: 0.85rem;
-  font-weight: 700;
-  padding: 0;
-  margin-bottom: 6px;
-}
-
-.forgot-message {
-  border-radius: 10px;
-  padding: 8px 10px;
-  font-size: 0.85rem;
-  margin-top: 6px;
-}
-
-.forgot-message-info {
-  background: #eaf8ef;
-  color: #146c2e;
-}
-
-.forgot-message-error {
-  background: #fdecec;
-  color: #9a2626;
-}
-
-.forgot-modal-actions {
-  margin-top: 14px;
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-}
-
-.forgot-btn {
-  border-radius: 10px;
-  padding: 8px 14px;
-  font-weight: 700;
-  border: none;
-  cursor: pointer;
-}
-
-.forgot-btn-secondary {
-  background: #e5e7eb;
-  color: #111827;
-}
-
-.forgot-btn-primary {
-  background: #0034b7;
-  color: #ffffff;
-}
-
-.forgot-btn:disabled {
-  opacity: 0.6;
-  cursor: default;
-}
-
-.otp-modal-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 999;
-  background: rgba(18, 18, 24, 0.35);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 18px;
-}
-
-.otp-modal-card {
-  width: min(100%, 390px);
-  background: #f7f7fa;
-  border-radius: 22px;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
-  padding: 16px 18px 24px;
-}
-
-.otp-back {
-  border: none;
-  background: transparent;
-  color: #1f1f1f;
-  font-size: 24px;
-  line-height: 1;
-  padding: 4px;
-}
-
-.otp-content {
-  margin-top: 22px;
-  text-align: center;
-}
-
-.otp-title {
-  font-size: 34px;
-  line-height: 1.1;
-  font-weight: 700;
-  color: #1d1d1f;
-  margin: 0;
-}
-
-.otp-subtitle {
-  margin: 12px auto 4px;
-  max-width: 320px;
-  font-size: 14px;
-  line-height: 1.45;
-  color: #8a8a95;
-}
-
-.otp-destination {
-  margin: 0;
-  font-size: 18px;
-  font-weight: 700;
-  color: #2c2c32;
-}
-
-.otp-box-wrapper {
-  margin-top: 30px;
-  position: relative;
-}
-
-.otp-hidden-input {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.otp-boxes {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 10px;
-}
-
-.otp-box {
-  height: 52px;
-  border-radius: 12px;
-  background: #ffffff;
-  border: 1px solid #ececf3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  font-weight: 700;
-  color: #232327;
-}
-
-.otp-box-active {
-  border-color: #6a5cff;
-  box-shadow: 0 0 0 2px rgba(106, 92, 255, 0.16);
-}
-
-.otp-expiry {
-  margin-top: 16px;
-  margin-bottom: 8px;
-  font-size: 13px;
-  color: #8e8e99;
-}
-
-.otp-resend {
-  border: none;
-  background: transparent;
-  color: #5f52e5;
-  font-size: 14px;
-  font-weight: 700;
-  padding: 0;
-}
-
-.otp-resend:disabled {
-  opacity: 0.6;
-}
-
-.otp-message {
-  margin-top: 14px;
-  padding: 10px 12px;
-  border-radius: 10px;
-  font-size: 13px;
-}
-
-.otp-message-info {
-  background: #eaf8ef;
-  color: #146c2e;
-}
-
-.otp-message-error {
-  background: #fdecec;
-  color: #9a2626;
 }
 </style>
